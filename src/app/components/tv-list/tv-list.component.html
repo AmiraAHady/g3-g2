@@ -1,0 +1,47 @@
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @for (tv of tvList; track $index) {
+  <div class="col">
+    <div class="card h-100">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + tv.poster_path"
+        class="card-img-top"
+        alt="poster"
+      />
+      <div class="card-body">
+        <h5
+          class="card-title"
+          [ngClass]="tv.name.length > 8 ? 'title-text' : 'text-primary'"
+        >
+          {{ tv.name | uppercase }}
+          <!-- conditional Rendaring -->
+          @if(tv.vote_average>7){
+          <span class="badge rounded-pill text-bg-danger">Top Rated</span>
+          }@else {
+          <span class="badge rounded-pill text-bg-dark">{{
+            tv.vote_average | number : "1.1-1"
+          }}</span>
+          }
+        </h5>
+        <h4>First Air: {{ tv.first_air_date | date }}</h4>
+        <p class="card-text" [ngStyle]="{ 'font-family': 'fantasy' }">
+          {{ tv.overview }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  }@empty {
+  <h1>No Data Founded!</h1>
+  }
+</div>
+
+<div class="m-5">
+  <mat-paginator
+    [length]="200"
+    [pageSizeOptions]="[10, 50, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

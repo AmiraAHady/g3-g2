@@ -1,14 +1,17 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
+  <!-- <input class="form-control" type="text" name="movieName" [(ngModel)]="searchMovie"> -->
+  <!-- <p>{{searchMovie}}</p> -->
     <div class="col">
       <div class="card h-100">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" class="card-img-top" alt="...">
+        <img [src]="movieDetail.image" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Inside Out 2 </h5>
-          <p class="card-text">Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely .</p>
+          <h5 class="card-title">{{movieDetail.title }}</h5>
+          <p class="card-text">{{movieDetail.description}}</p>
+          <button class="btn btn-primary" [disabled]="movieDetail.isAvaliable"  (click)="watchMovie(movieDetail.title)">Watch</button>
         </div>
       </div>
     </div>
-    <div class="col">
+    <!-- <div class="col">
       <div class="card h-100">
         <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/eEkAY5veAnwxUOOlpF62KawkFO9.jpg" class="card-img-top" alt="...">
         <div class="card-body">
@@ -34,6 +37,6 @@
           <p class="card-text">Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely .</p>
         </div>
       </div>
-    </div>
+    </div> -->
   
   </div>
