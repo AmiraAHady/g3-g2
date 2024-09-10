@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   // component directive
@@ -9,19 +10,11 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css',
 })
-export class MoviesComponent {
-  searchMovie:string='data'
-  movieDetail:any = {
-    title: 'Spider-Man Unlimited ',
-    image:
-      'https://media.themoviedb.org/t/p/w600_and_h900_bestv2/fvmC5QzQwkI5ZNJauE4xpF24PTB.jpg',
-    description:
-      'Spider-Man travels to Counter-Earth to rescue a Terran shuttle crew trapped there and discovers a tyrannical & warped version of his world.',
-    isAvaliable:false  
-  };
+export class MoviesComponent implements OnInit {
+  movieList: any[] = [];
+  constructor(private movServ: MoviesService) {}
 
-  watchMovie(title:string){
-    console.log(`user want to watch ${title}`);
-    
+  ngOnInit() {
+    this.movieList = this.movServ.getAllMovies();
   }
 }

@@ -4,12 +4,13 @@ import { HomeComponent } from './components/home/home.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TvListComponent } from './components/tv-list/tv-list.component';
+import { RouterOutlet } from '@angular/router';
 //  Decorator
 @Component({
   // component directive
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent,HomeComponent,MoviesComponent,FooterComponent,TvListComponent],
+  imports: [RouterOutlet,NavbarComponent,FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

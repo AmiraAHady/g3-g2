@@ -1,42 +1,21 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  <!-- <input class="form-control" type="text" name="movieName" [(ngModel)]="searchMovie"> -->
-  <!-- <p>{{searchMovie}}</p> -->
+   
+  @for (movie of movieList; track $index) {
     <div class="col">
       <div class="card h-100">
-        <img [src]="movieDetail.image" class="card-img-top" alt="...">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{movieDetail.title }}</h5>
-          <p class="card-text">{{movieDetail.description}}</p>
-          <button class="btn btn-primary" [disabled]="movieDetail.isAvaliable"  (click)="watchMovie(movieDetail.title)">Watch</button>
+          <h5 class="card-title">{{movie.title }}</h5>
+          <p class="card-text">{{movie.overview}}</p>
+          <button class="btn btn-primary">Watch</button>
         </div>
       </div>
     </div>
-    <!-- <div class="col">
-      <div class="card h-100">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/eEkAY5veAnwxUOOlpF62KawkFO9.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Inside Out 2 </h5>
-          <p class="card-text">Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely .</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/jwoaKYVqPgYemFpaANL941EF94R.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Inside Out 2 </h5>
-          <p class="card-text">Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely .</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/wWba3TaojhK7NdycRhoQpsG0FaH.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Inside Out 2 </h5>
-          <p class="card-text">Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely .</p>
-        </div>
-      </div>
-    </div> -->
+  }@empty {
+    <h1>No Movies Founded!</h1>
+  }
+
+    
+    
   
   </div>
