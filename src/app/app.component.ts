@@ -5,12 +5,13 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TvListComponent } from './components/tv-list/tv-list.component';
 import { RouterOutlet } from '@angular/router';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 //  Decorator
 @Component({
   // component directive
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavbarComponent,FooterComponent],
+  imports: [RouterOutlet,NavbarComponent,FooterComponent,MovieDetailsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

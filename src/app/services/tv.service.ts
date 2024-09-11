@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TvService {
+  apiKey:string='c6c257a0fa45c9003ee9b1f546013fa6'
   private tvListData = [
     {
       adult: false,

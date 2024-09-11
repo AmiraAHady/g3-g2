@@ -26,10 +26,8 @@ import { TvService } from '../../services/tv.service';
 })
 export class TvListComponent implements OnInit {
   tvList: any[] = [];
-  // tvServ: TvService;
   // DI->Dependancy Injection
   constructor(private tvServ:TvService) {
-    // this.tvServ = new TvService();
   }
   ngOnInit() {
     this.tvList = this.tvServ.getTvList();
